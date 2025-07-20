@@ -22,11 +22,16 @@ val conventions: ConventionNamespace = ConventionNamespace()
  * (e.g., `jvm`, `multiplatform`, etc.).
  */
 class ConventionNamespace internal constructor(
-    val jvm: String = "jvm-convention",
+    val jvm: JvmNamespace = JvmNamespace(),
     val tests: String = "tests-convention",
     val kover: String = "kover-convention",
     val detekt: String = "detekt-convention",
     val multiplatform: MultiplatformNamespace = MultiplatformNamespace(),
+)
+
+class JvmNamespace internal constructor(
+    val core: String = "jvm-convention",
+    val library: String = "jvm-library-convention",
 )
 
 

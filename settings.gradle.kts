@@ -18,6 +18,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "kotlin-project-template"
+rootProject.name = "valdi"
 
 includeBuild("build-conventions")
+
+include(":valdi-validation-core", ":valdi-domain-core", ":valdi-domain-detekt")

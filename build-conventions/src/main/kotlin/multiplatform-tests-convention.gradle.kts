@@ -8,8 +8,7 @@ val libs = the<LibrariesForLibs>()
 
 dependencies {
     commonTestImplementation(libs.kotlinx.coroutines.test)
-    commonTestImplementation(libs.kotlin.test)
-    "jvmTestImplementation"(libs.mockk)
+    commonTestImplementation(libs.kotlin.test.junit5)
 }
 
 tasks.withType<Test> {

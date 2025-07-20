@@ -24,6 +24,7 @@ essenty = "2.5.0"
 detekt = "1.23.8"
 detekt-compose = "0.4.22"
 kover = "0.9.1"
+vanniktech-maven-publish = "0.34.0"
 
 [libraries]
 # ───────────────────────────────────────────────────────────────────────────────
@@ -53,7 +54,8 @@ ktor-server-statusPages = { module = "io.ktor:ktor-server-status-pages", version
 # Testing Libraries
 # ───────────────────────────────────────────────────────────────────────────────
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "vanniktech-maven-publish" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 # ───────────────────────────────────────────────────────────────────────────────
@@ -166,6 +168,8 @@ y9vad9-ktiny-kotlidator = { module = "com.y9vad9.ktiny:kotlidator", version.requ
 # Detekt
 # ───────────────────────────────────────────────────────────────────────────────
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt-compose" }
+detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "detekt" }
+detekt-test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version.ref = "detekt" }
 
 [plugins]
 # ───────────────────────────────────────────────────────────────────────────────

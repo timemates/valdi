@@ -16,5 +16,6 @@ dependencies {
     api(libs.pluginClasspath.kotlin)
     api(libs.pluginClasspath.kover)
     api(libs.pluginClasspath.detekt)
+    api(libs.vanniktech.maven.publish)
     api(files((libs).javaClass.superclass.protectionDomain.codeSource.location))
 }
