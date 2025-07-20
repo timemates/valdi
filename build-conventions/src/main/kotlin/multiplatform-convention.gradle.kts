@@ -1,4 +1,6 @@
-import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     kotlin("multiplatform")
@@ -11,6 +13,11 @@ kotlin {
         browser()
         nodejs()
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    wasmJs()
+    wasmWasi()
 
-    explicitApi = ExplicitApiMode.Strict
+    explicitApi()
 }

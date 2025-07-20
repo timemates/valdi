@@ -9,7 +9,7 @@ mavenPublishing {
 
     pom {
         url.set("https://github.com/y9vad9/valdi")
-        inceptionYear.set("2024")
+        inceptionYear.set("2025")
 
         licenses {
             license {
