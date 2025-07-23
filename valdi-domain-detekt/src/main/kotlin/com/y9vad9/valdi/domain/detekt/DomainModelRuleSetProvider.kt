@@ -14,7 +14,7 @@ import io.gitlab.arturbosch.detekt.api.RuleSetProvider
 
 public class DomainModelRuleSetProvider : RuleSetProvider {
 
-    override val ruleSetId: String = "valdi-domain"
+    override val ruleSetId: String = "valdi"
 
     override fun instance(config: Config): RuleSet {
         return RuleSet(
@@ -27,7 +27,6 @@ public class DomainModelRuleSetProvider : RuleSetProvider {
                 EntityConstructorMustBePrivateRule(config),
                 EntityMustHaveIdRule(config),
                 ValueObjectCannotContainEntityOrAggregateRule(config),
-                ValueObjectConstructorMustBePublicRule(config),
                 ValueObjectMustBeImmutableRule(config),
             ),
         )
