@@ -65,8 +65,9 @@ public class AggregateMustOnlyContainDomainObjectsRule(config: Config) : Rule(co
                     CodeSmell(
                         issue,
                         Entity.atName(property),
-                        message = "Property '${property.name}' inside @AggregateRoot must be a type annotated with @ValueObject or @DomainEntity. " +
-                            "Type '${classDescriptor.fqNameSafe}' is missing required annotation."
+                        message = "Property '${property.name}' inside @AggregateRoot must be a type annotated with " +
+                            "@ValueObject or @DomainEntity. Type '${classDescriptor.fqNameSafe}' " +
+                            "is missing required annotation."
                     )
                 )
             }

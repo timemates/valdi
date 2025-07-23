@@ -54,7 +54,8 @@ public class ValueObjectCannotContainEntityOrAggregateRule(config: Config) : Rul
                     CodeSmell(
                         issue = issue,
                         entity = Entity.atName(property),
-                        message = "@ValueObject '${klass.name}' must not contain property '${property.name}' of type '${classDescriptor.name}', which is annotated as " +
+                        message = "@ValueObject '${klass.name}' must not contain property '${property.name}' of" +
+                            " type '${classDescriptor.name}', which is annotated as " +
                             if (isEntity) "@DomainEntity" else "@AggregateRoot" + ".",
                     )
                 )

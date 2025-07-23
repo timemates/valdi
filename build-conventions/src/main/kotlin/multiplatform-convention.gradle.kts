@@ -16,8 +16,13 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    wasmJs()
-    wasmWasi()
+    wasmJs {
+        browser()
+        nodejs()
+    }
+    wasmWasi {
+        nodejs()
+    }
 
     explicitApi()
 }

@@ -18,14 +18,16 @@ import org.jetbrains.kotlin.resolve.BindingContext
  *
  * ## Rule Overview
  * In Domain-Driven Design (DDD), an `@AggregateRoot` defines a consistency boundary.
- * Aggregates should not reference other aggregates directly as properties, as this leads to tightly coupled domain structures.
+ * Aggregates should not reference other aggregates directly as properties, as this leads to tightly coupled domain
+ * structures.
  *
  * ## Checks Performed
- * - Classes annotated with `@AggregateRoot` must not have any property whose type is also annotated with `@AggregateRoot`.
+ * - Classes annotated with `@AggregateRoot` must not have any property whose type is also annotated
+ * with `@AggregateRoot`.
  *
  * ## Why This Matters
- * Nesting aggregates violates aggregate boundaries and may lead to domain model corruption, inconsistent state transitions,
- * and increased coupling between aggregates.
+ * Nesting aggregates violates aggregate boundaries and may lead to domain model corruption, inconsistent state
+ * transitions, and increased coupling between aggregates.
  *
  * ## Example of a violation:
  * ```kotlin
@@ -71,7 +73,8 @@ public class AggregateCannotContainAggregateRule(config: Config) : Rule(config) 
                     CodeSmell(
                         issue = issue,
                         entity = Entity.atName(property),
-                        message = "@AggregateRoot '${klass.name}' must not contain another @AggregateRoot '${classDescriptor.name}' as a property.",
+                        message = "@AggregateRoot '${klass.name}' must not contain another @AggregateRoot " +
+                            "'${classDescriptor.name}' as a property.",
                     )
                 )
             }

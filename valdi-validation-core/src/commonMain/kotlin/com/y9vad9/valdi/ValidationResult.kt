@@ -84,7 +84,7 @@ public fun <TSuccess, TFailure : ValidationFailure> ValidationResult<TSuccess, T
  * otherwise returns the result of the [fallback] function.
  */
 public inline fun <TSuccess, TFailure : ValidationFailure> ValidationResult<TSuccess, TFailure>.getOrElse(
-    fallback: (TFailure) -> TSuccess
+    fallback: (TFailure) -> TSuccess,
 ): TSuccess = when (this) {
     is ValidationResult.Success -> value
     is ValidationResult.Failure -> fallback(error)
@@ -95,16 +95,17 @@ public inline fun <TSuccess, TFailure : ValidationFailure> ValidationResult<TSuc
  *
  * Use this to explicitly propagate or wrap error conditions.
  */
-public fun <TSuccess, TFailure : ValidationFailure> ValidationResult<TSuccess, TFailure>.getOrThrow(): TSuccess = when (this) {
-    is ValidationResult.Success -> value
-    is ValidationResult.Failure -> throw ValidationException(error)
-}
+public fun <TSuccess, TFailure : ValidationFailure> ValidationResult<TSuccess, TFailure>.getOrThrow(): TSuccess =
+    when (this) {
+        is ValidationResult.Success -> value
+        is ValidationResult.Failure -> throw ValidationException(error)
+    }
 
 /**
  * Transforms the successful value using [transform], or propagates the [ValidationResult.Failure].
  */
 public inline fun <TSuccess, TFailure : ValidationFailure, R> ValidationResult<TSuccess, TFailure>.map(
-    transform: (TSuccess) -> R
+    transform: (TSuccess) -> R,
 ): ValidationResult<R, TFailure> = when (this) {
     is ValidationResult.Success -> ValidationResult.Success(transform(value))
     is ValidationResult.Failure -> this
@@ -114,7 +115,7 @@ public inline fun <TSuccess, TFailure : ValidationFailure, R> ValidationResult<T
  * Transforms the successful value into another [ValidationResult] using [transform], or propagates the [Error].
  */
 public inline fun <TSuccess, TFailure : ValidationFailure, R> ValidationResult<TSuccess, TFailure>.flatMap(
-    transform: (TSuccess) -> ValidationResult<R, TFailure>
+    transform: (TSuccess) -> ValidationResult<R, TFailure>,
 ): ValidationResult<R, TFailure> = when (this) {
     is ValidationResult.Success -> transform(value)
     is ValidationResult.Failure -> this
@@ -123,8 +124,9 @@ public inline fun <TSuccess, TFailure : ValidationFailure, R> ValidationResult<T
 /**
  * Transforms the error value using [transform], or propagates the [Success].
  */
-public inline fun <TSuccess, TFailure : ValidationFailure, F : ValidationFailure> ValidationResult<TSuccess, TFailure>.mapError(
-    transform: (TFailure) -> F
+public inline
+fun <TSuccess, TFailure : ValidationFailure, F : ValidationFailure> ValidationResult<TSuccess, TFailure>.mapError(
+    transform: (TFailure) -> F,
 ): ValidationResult<TSuccess, F> = when (this) {
     is ValidationResult.Success -> this
     is ValidationResult.Failure -> ValidationResult.Failure(transform(error))

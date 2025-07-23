@@ -7,7 +7,6 @@ import com.y9vad9.valdi.domain.detekt.rule.AggregateShouldNotBeDataClassRule
 import com.y9vad9.valdi.domain.detekt.rule.EntityConstructorMustBePrivateRule
 import com.y9vad9.valdi.domain.detekt.rule.EntityMustHaveIdRule
 import com.y9vad9.valdi.domain.detekt.rule.ValueObjectCannotContainEntityOrAggregateRule
-import com.y9vad9.valdi.domain.detekt.rule.ValueObjectConstructorMustBePublicRule
 import com.y9vad9.valdi.domain.detekt.rule.ValueObjectMustBeImmutableRule
 import io.gitlab.arturbosch.detekt.api.Config
 import io.gitlab.arturbosch.detekt.api.RuleSet

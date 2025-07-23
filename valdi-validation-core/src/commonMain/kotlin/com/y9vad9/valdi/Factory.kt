@@ -63,3 +63,12 @@ public inline fun <TIn : Any, TOut : Any, TErr : ValidationFailure> Factory<TIn,
     input: TIn,
     orElse: (TErr) -> TOut,
 ): TOut = create(input).getOrElse(orElse)
+
+/**
+ * Attempts to create a new [TOut] instance from the provided [input].
+ *
+ * If validation fails, returns null.
+ */
+public fun <TIn : Any, TOut : Any, TErr : ValidationFailure> Factory<TIn, TOut, TErr>.createOrNull(
+    input: TIn,
+): TOut? = create(input).getOrNull()
