@@ -7,8 +7,7 @@ plugins {
 val libs = the<LibrariesForLibs>()
 
 dependencies {
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.kotlin.test.junit5)
+    testImplementation(libs.kotlin.test)
 }
 
 tasks.withType<Test> {

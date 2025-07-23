@@ -7,6 +7,7 @@ group = "com.y9vad9.valdi"
 dependencies {
     implementation(libs.detekt.api)
     testImplementation(libs.detekt.test)
+    testImplementation(libs.kotlin.test.junit5)
 
     implementation(projects.valdiDomainCore)
 }

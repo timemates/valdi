@@ -8,7 +8,7 @@ plugins {
 val libs = the<LibrariesForLibs>()
 
 detekt {
-    toolVersion = libs.versions.detekt.asProvider().get()
+    toolVersion = libs.versions.detekt.get()
 
     source.from(
         /**
